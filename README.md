@@ -2,6 +2,8 @@
 
 wn-notify is a small command line tool that sends text messages and files to a White Noise group. It is one Python file that uses only the standard library. It talks to a local `wn-agent` over a Unix socket, so it never touches your keys.
 
+This is an unofficial tool. It is not affiliated with or endorsed by the Marmot or White Noise projects.
+
 ## Why
 
 I want agents and scripts to tell me things in an end-to-end encrypted messenger: a long job finished, a backup failed, a build produced a file. For SimpleX there is `simplex-msg`. wn-notify does the same for White Noise, with the same habit of use: `wn-msg "done"` from a shell, a cron job or a coding agent.
@@ -57,7 +59,7 @@ By default wn-notify reads `~/.marmot-agents/notify/`. Set `WN_NOTIFY_HOME` to u
 }
 ```
 
-`account_id_hex` is the `account_id_hex` from `bootstrap.json` (64 hex characters). `socket` is the control socket of the running `wn-agent`. `staging_root` is an owner-only directory (mode 0700) that is covered by the agent's `--media-allowed-root`. `group_id_hex` can be left out at first. `bind` or `create-group` fills it in.
+`account_id_hex` is the `account_id_hex` from `bootstrap.json` (64 hex characters). `socket` is the control socket of the running `wn-agent`. `staging_root` is an owner-only directory (mode 0700), for example `~/.marmot-agents/notify/outbound-media`, that is covered by the agent's `--media-allowed-root`. `group_id_hex` can be left out at first. `bind` or `create-group` fills it in.
 
 You write `notify.json` yourself, and the tool does not create it. Keep it mode 0600.
 
@@ -178,4 +180,4 @@ On success it prints `Published to group relays (not a recipient read receipt)` 
 
 ## License
 
-TODO: no license has been chosen yet.
+MIT. See [LICENSE](LICENSE).
